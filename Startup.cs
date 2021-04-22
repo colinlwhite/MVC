@@ -23,6 +23,7 @@ namespace MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
             services.AddControllersWithViews();
         }
 
@@ -48,6 +49,8 @@ namespace MVC
 
             app.UseEndpoints(endpoints =>
             {
+                // Adding Razor Pages to the MVC application
+                endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
